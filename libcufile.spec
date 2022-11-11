@@ -2,11 +2,11 @@
 %global __strip /bin/true
 %global _missing_build_ids_terminate_build 0
 %global _build_id_links none
-%global major_package_version 11-6
+%global major_package_version 11-8
 
 Name:           libcufile
 Epoch:          1
-Version:        1.3.1.18
+Version:        1.4.0.31
 Release:        1%{?dist}
 Summary:        NVIDIA GPUDirect Storage library (cuFile)
 License:        CUDA Toolkit
@@ -123,6 +123,10 @@ sed -i \
 %{_bindir}/gds_stats
 
 %changelog
+* Fri Nov 11 2022 Simone Caronni <negativo17@gmail.com> - 1:1.4.0.31-1
+- Update to 1.4.0.31.
+- Use aarch64 archive in place of sbsa.
+
 * Sun Sep 04 2022 Simone Caronni <negativo17@gmail.com> - 1:1.3.1.18-1
 - Update to 1.3.1.18.
 
