@@ -14,7 +14,8 @@ URL:            https://developer.nvidia.com/cuda-toolkit
 ExclusiveArch:  x86_64
 
 Source0:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-x86_64/%{name}-linux-x86_64-%{version}-archive.tar.xz
-Source1:        cufile.pc
+Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-aarch64/%{name}-linux-aarch64-%{version}-archive.tar.xz
+Source2:        cufile.pc
 
 Requires(post): ldconfig
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
@@ -58,7 +59,13 @@ This package provides tools and samples for the NVIDIA GPUDirect Storage library
 (cuFile).
 
 %prep
-%autosetup -n %{name}-linux-x86_64-%{version}-archive
+%ifarch x86_64
+%setup -q -n %{name}-linux-x86_64-%{version}-archive
+%endif
+
+%ifarch aarch64
+%setup -q -T -b 1 -n %{name}-linux-aarch64-%{version}-archive
+%endif
 
 %install
 mkdir -p %{buildroot}%{_bindir}
@@ -71,7 +78,7 @@ mkdir -p %{buildroot}%{_sysconfdir}
 cp -fr tools/gds* %{buildroot}%{_bindir}/
 cp -fr include/* %{buildroot}%{_includedir}/
 cp -fr lib/lib* %{buildroot}%{_libdir}/
-cp -fr %{SOURCE1} %{buildroot}/%{_libdir}/pkgconfig/
+cp -fr %{SOURCE2} %{buildroot}/%{_libdir}/pkgconfig/
 cp -fr man/man3 %{buildroot}%{_mandir}/
 cp -fr etc/* %{buildroot}%{_sysconfdir}/
 
