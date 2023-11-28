@@ -6,15 +6,15 @@
 
 Name:           libcufile
 Epoch:          1
-Version:        1.7.2.10
+Version:        1.8.1.2
 Release:        1%{?dist}
 Summary:        NVIDIA GPUDirect Storage library (cuFile)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
-ExclusiveArch:  x86_64
+ExclusiveArch:  aarch64 x86_64
 
 Source0:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-x86_64/%{name}-linux-x86_64-%{version}-archive.tar.xz
-Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-aarch64/%{name}-linux-aarch64-%{version}-archive.tar.xz
+Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-sbsa/%{name}-linux-sbsa-%{version}-archive.tar.xz
 Source2:        cufile.pc
 
 Requires(post): ldconfig
@@ -64,7 +64,7 @@ This package provides tools and samples for the NVIDIA GPUDirect Storage library
 %endif
 
 %ifarch aarch64
-%setup -q -T -b 1 -n %{name}-linux-aarch64-%{version}-archive
+%setup -q -T -b 1 -n %{name}-linux-sbsa-%{version}-archive
 %endif
 
 %install
@@ -130,6 +130,9 @@ sed -i \
 %{_bindir}/gds_stats
 
 %changelog
+* Tue Nov 28 2023 Simone Caronni <negativo17@gmail.com> - 1:1.8.1.2-1
+- Update to 1.8.1.2.
+
 * Thu Sep 28 2023 Simone Caronni <negativo17@gmail.com> - 1:1.7.2.10-1
 - Update to 1.7.2.10.
 
