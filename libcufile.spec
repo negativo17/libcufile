@@ -118,7 +118,7 @@ sed -i \
 %{_libdir}/libcufile_static.a
 
 %files tools
-%doc tools/README samples
+%doc tools/README
 %doc tools/*.gdsio tools/*.cfg
 %{_bindir}/gdscheck
 %{_bindir}/gdscheck.py
