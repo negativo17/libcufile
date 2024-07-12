@@ -2,7 +2,7 @@
 %global __strip /bin/true
 %global _missing_build_ids_terminate_build 0
 %global _build_id_links none
-%global major_package_version 12-0
+%global major_package_version 12-5
 
 Name:           libcufile
 Epoch:          1
