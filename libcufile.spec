@@ -6,7 +6,7 @@
 
 Name:           libcufile
 Epoch:          1
-Version:        1.15.1.6
+Version:        1.16.1.26
 Release:        1%{?dist}
 Summary:        NVIDIA GPUDirect Storage library (cuFile)
 License:        CUDA Toolkit
@@ -119,6 +119,9 @@ sed -i \
 %{_bindir}/gds_stats
 
 %changelog
+* Mon Feb 02 2026 Simone Caronni <negativo17@gmail.com> - 1:1.16.1.26-1
+- Update to 1.16.1.26.
+
 * Sun Oct 26 2025 Simone Caronni <negativo17@gmail.com> - 1:1.15.1.6-1
 - Update to 1.15.1.6.
 
